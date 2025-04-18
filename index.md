@@ -57,21 +57,21 @@ Log-based fault diagnosis is essential for maintaining software system availabil
 
 ## Main Ideas
 <div align="center">
-    <img src= "{{ site.baseurl }}/static/image/teaser.png" alt="Hierarchical UCB" style="width: 60%;">
+    <img src= "{{ site.baseurl }}/static/image/teaser.jpg" alt="Hierarchical UCB" style="width: 60%;">
     <p><em>Figure 1: Two different fault diagnosis deployment paradigms. The existing log-based fault diagnosis method is deployed in a task-independent paradigm. Initially, the labeled log sequences and log entries are inputted, and the detector and localizer are trained independently. Finally, the two are integrated into a fault diagnosis network, leading to issues such as diagnostic bias accumulates. The proposed log-based fault diagnosis method is deployed in an task-interactive paradigm. The labeled log sequence is used to train the detector and localizer interactively in an end-to-end manner, resulting in excellent diagnostic performance.</em></p>
 </div>
 
 <br><br> <!-- Adding two extra empty lines -->
 
 <div align="center">
-    <img src= "{{ site.baseurl }}/static/image/pipeline.png" alt="Hierarchical UCB" style="width: 150%; display: block; margin-left: auto; margin-right: auto;">
+    <img src= "{{ site.baseurl }}/static/image/pipeline.jpg" alt="Hierarchical UCB" style="width: 150%; display: block; margin-left: auto; margin-right: auto;">
     <p><em>Figure 2: The proposed end-to-end log-based fault diagnosis pipeline for Chimera. Chimera pipeline comprises three key stages: Log Preprocessing, Interactive Log Representation Learning (ILRL), and Joint Fault Diagnosis. Firstly, the raw system logs are labeled and parsed into log event sequences, and corresponding log embeddings are extracted. Secondly, the ILRL module to learns shared and private representations for anomaly detection and root cause localization interactively, and combines them into a log representation for fault diagnosis. Finally, the learned log representation is fed into the localizer and detector for joint fault diagnosis. Chimera bridges the gap between anomaly detection and root cause localization through their bidirectional interaction and knowledge transfer, achieving more effective end-to-end fault diagnosis.</em></p>
 </div>
 
 <br><br> <!-- Adding two extra empty lines -->
 
 <div align="center">
-    <img src= "{{ site.baseurl }}/static/image/workflow.png" alt="Hierarchical UCB" style="width: 150%; display: block; margin-left: auto; margin-right: auto;">
+    <img src= "{{ site.baseurl }}/static/image/workflow.jpg" alt="Hierarchical UCB" style="width: 150%; display: block; margin-left: auto; margin-right: auto;">
     <p><em>Figure 3: The workflow of Sequence-driven Localizer. Given embeddings of log sequence, the network outputs a score for each log and locates the root cause log. The localizer is designed based on the principle of multi-instance learning, and locates the root cause log by comparing the scores of normal log sequences and anomalous log sequences.</em></p>
 </div>
 
