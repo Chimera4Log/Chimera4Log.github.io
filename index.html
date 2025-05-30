@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="United We Stand: Towards End-to-End Log-based Fault Diagnosis via Interactive Multi-Task Learning">
+  <meta name="keywords" content="Fault Diagnosis, Log Analysis, Root Cause Localization, Multi-Task Learning">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>United We Stand: Towards End-to-End Log-based Fault Diagnosis via Interactive Multi-Task Learning</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title" style="font-size: 2.5rem;"><span style="color: #228be6;font-weight: bolder;">United We Stand</span> : Towards End-to-End Log-based Fault Diagnosis via Interactive Multi-Task Learning</h1>
+          <div class="is-size-5 publication-authors">
+            <div class="is-size-4 publication-authors">
+            <span class="author-block">
+              Anonymous Submission
+            </span>
+          </div>
+          </div>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://anonymous.4open.science/r/Chimera"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">Chimera</span> is an innovative end-to-end log-based fault diagnosis method designed to achieve anomaly detection and root cause localization within a unified framework. Chimera can bridge the gap between anomaly detection and root cause localization, achieving more effective end-to-end fault diagnosis through their bidirectional interaction and knowledge transfer.
+      </h2>
+      <img src="static/image/pipeline.jpg" alt="BUFFET teaser.">
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3"><span style="color: #228be6">Summary</span></h2>
+        <div class="content has-text-justified">
+
+          <p>
+            <b>Issues: <b><span style="color: #228be6">Diagnostic Bias</span></b> and <b><span style="color: #228be6">Suboptimal Diagnosis</span></b> in Log-based Software System Fault Diagnosis</b><br>
+            Log-based fault diagnosis are divided into two stages: 1. anomaly detection is performed first, and 2. if a fault is detected, further root cause localization is conducted.
+            <ul>
+              <li>
+                  Diagnostic Bias: If the detector yields inaccurate results, these inaccuracies will also be passed on to the localizer.
+              </li>
+              <li>
+                  Suboptimal Diagnosis: A system fault may not be simultaneously detected and localized.
+              </li>
+            </ul>         
+          </p>
+
+         <p>
+            <b>Key technologies: Bridging the gap between anomaly detection and root cause localization through their <b><span style="color: red">Bidirectional Interaction</span></b> and <b><span style="color: red">Knowledge Transfer</span></b>
+            In our view, the root cause of these issues is that anomaly detection and root cause localization rely on different forms of data for training and have distinct diagnostic objectives for faults. The anomaly detection uses anomalous log sequences as training data, with the diagnostic objective of determining whether a fault has occurred in the system. The root cause localization utilizes root cause logs as training data, with the objective of localizing the fault that caused the failure. Simply piecing together expert models to construct a fault diagnosis system cannot effectively bridge the gap between the two in terms of data forms and diagnostic objectives, nor can it handle fault diagnosis within a unified framework. 
+         </p>
+
+         <p>
+            <b>Our propose method: <b><span style="color: #228be6">Chimera</span></b> </b><br>
+            Addressing these issues requires bridging the gap between the two sub-tasks in terms of data forms and diagnostic objectives, and constructing an end-to-end fault diagnosis system. Our approach is to implement interactive multi-task learning between the two sub-tasks. Our key insight is that there is a strong mutual implication between the anomaly detection task and the root cause localization task, and their bidirectional interaction and knowledge transfer can bridge the gaps in data forms and diagnostic objectives.
+         </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+    <!--/ Abstract. -->
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Animation. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+      <h2 class="title is-3"><span style="color: #228be6">Key Contributions</span></h2>
+         <div class="content has-text-justified">
+
+          <ul>
+            <li>
+              We proposed an end-to-end log-based fault diagnosis system, Chimera, which achieves anomaly detection and root cause localization interactively within a unified framework through carefully designed interaction strategies.
+            </li>
+            <li>
+              We designed a sequence-driven localizer based on the principle of multiple-instance learning, which utilizes only anomalous log sequences for training without the need for root cause logs.
+            </li>
+            <li>
+              We proposed a multi-task interaction strategy based on disentanglement learning and mutual information theory, which facilitates interaction at the feature and diagnostic result levels, effectively promoting knowledge transfer between tasks.
+            </li>
+            <li>
+              Evaluations on two public datasets and one industrial dataset demonstrate the significant effectiveness of our approach.
+            </li>
+         </ul>
+
+         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Animation. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+      <h2 class="title is-3"><span style="color: #228be6">Insight</span></h2>
+         <div class="content has-text-justified">
+          Two different fault diagnosis deployment paradigms. The existing log-based fault diagnosis method is deployed in a task-independent paradigm. Initially, the labeled log sequences and log entries are inputted, and the detector and localizer are trained independently. Finally, the two are integrated into a fault diagnosis network, leading to issues such as diagnostic bias accumulates. The proposed log-based fault diagnosis method is deployed in an task-interactive paradigm. The labeled log sequence is used to train the detector and localizer interactively in an end-to-end manner, resulting in excellent diagnostic performance.
+         </div>
+          <div align="center">
+            <img src= "/static/image/teaser.jpg" alt="Hierarchical UCB" style="width: 60%;">
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"><span style="color: #228be6">Empirical Study</span></h2>
+        <div class="columns is-vcentered interpolation-panel">
+        </div>
+        <br/>
+
+        <div class="content has-text-justified">
+            <h3 class="title is-4"> <b><span style="color: #228be6">EQ1</span></b>: How effective are existing methods in addressing diagnostic bias?</h3>
+                <p>
+                  Existing log-based fault diagnosis methods conduct anomaly detection and root cause localization in a task-independent manner, which fails to adequately address the inevitable diagnostic bias in fault diagnosis, thereby severely impacting diagnostic performance.
+                </p>
+                <img src="static/image/EQ1.png" alt="EQ1">
+        </div>
+
+        <div class="content has-text-justified">
+            <h3 class="title is-4"><b><span style="color: #228be6">EQ2</span></b>: How effective are existing methods in addressing suboptimal diagnosis?</h3>
+                <p>
+                  Existing fault diagnosis methods independently perform anomaly detection and root cause localization, neglecting their collaborative relationship, which prevents simultaneous detection and localization of faults, resulting in a large number of undesirable suboptimal diagnoses.
+                </p>
+                <img src="static/image/EQ2.png" alt="EQ2">
+                <p class="has-text-centered" style="font-size: 0.9em; color: #666; margin-top: 0.5em;">
+                  The distribution of diagnostic results from existing methods in performing fault diagnosis on the Thunderbird dataset. The green portion represents Detected but not Localized Fault (DF), the red portion represents Localized but not Detected Fault (LF), and the yellow portion represents Detected and Localized Fault (DLF).
+                </p>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Animation. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+      <h2 class="title is-3"><span style="color: #228be6">Method</span></h2>
+          <div class="content has-text-justified">
+            The proposed end-to-end log-based fault diagnosis pipeline for Chimera. Chimera pipeline comprises three key stages: Log Preprocessing, Interactive Log Representation Learning (ILRL), and Joint Fault Diagnosis. Firstly, the raw system logs are labeled and parsed into log event sequences, and corresponding log embeddings are extracted. Secondly, the ILRL module to learns shared and private representations for anomaly detection and root cause localization interactively, and combines them into a log representation for fault diagnosis. Finally, the learned log representation is fed into the localizer and detector for joint fault diagnosis. Chimera bridges the gap between anomaly detection and root cause localization through their bidirectional interaction and knowledge transfer, achieving more effective end-to-end fault diagnosis.
+              <div align="center">
+            <img src= "/static/image/pipeline.jpg" alt="Hierarchical UCB">
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Animation. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+      <h2 class="title is-3"><span style="color: #228be6">Architecture</span></h2>
+          <div class="content has-text-justified">
+            The workflow of Sequence-driven Localizer. Given embeddings of log sequence, the network outputs a score for each log and locates the root cause log. The localizer is designed based on the principle of multi-instance learning, and locates the root cause log by comparing the scores of normal log sequences and anomalous log sequences.
+              <div align="center">
+            <img src= "/static/image/workflow.jpg" alt="Hierarchical UCB">
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"><span style="color: #228be6">Experiment Results</span></h2>
+        <div class="columns is-vcentered interpolation-panel">
+        </div>
+        <br/>
+
+        <div class="content has-text-justified">
+            <h3 class="title is-4"> <b><span style="color: #228be6">RQ1</span></b>: How effective is Chimera in the anomaly detection and root cause localization?</h3>
+                <p>
+                    <span style="color: #228be6"><b>Chimera</b></span> achieved best performance even when compared to expert models addressing anomaly detection and root cause localization.
+                </p>
+                <img src="static/image/RQ1.png" alt="RQ1">
+        </div>
+
+        <div class="content has-text-justified">
+            <h3 class="title is-4"><b><span style="color: #228be6">RQ2</span></b>: How effective is Chimera in the log-based fault diagnosis?</h3>
+                <p>
+                  Compared to the advanced task-independent method built on a pipeline paradigm, <span style="color: #228be6"><b>Chimera</b></span> achieved the best performance across three datasets.
+                </p>
+                <img src="static/image/RQ2.png" alt="RQ2">
+        </div>
+
+        <div class="content has-text-justified">
+            <h3 class="title is-4"><b><span style="color: #228be6">RQ3</span></b>: How do different modules contribute to Chimera?</h3>
+                <p>
+                  The ablation of all components resulted in different levels of performance degradation.
+                </p>
+            <img src="static/image/RQ3.png" alt="RQ3">
+        </div>
+
+        <div class="content has-text-justified">
+          <h3 class="title is-4"><b><span style="color: #228be6">RQ4</span></b>: How effective is Chimera in addressing diagnostic bias?</h3>
+              <p>
+                <span style="color: #228be6"><b>Chimera</b></span> effectively reduced the adverse effects of diagnostic bias, achieving the best performance.
+              </p>
+          <img src="static/image/RQ4.png" alt="RQ4">
+      </div>
+
+      <div class="content has-text-justified">
+        <h3 class="title is-4"><b><span style="color: #228be6">RQ5</span></b>: How effective is Chimera in addressing suboptimal diagnosis?</h3>
+            <p>
+              <span style="color: #228be6"><b>Chimera</b></span> produced the fewest suboptimal diagnoses, with the majority of faults being detected and localized simultaneously.
+            </p>
+        <img src="static/image/RQ5.png" alt="RQ5">
+    </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://anonymous.4open.science/r/Chimera" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
