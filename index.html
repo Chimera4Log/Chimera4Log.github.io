@@ -28,6 +28,50 @@
 </head>
 <body>
 
+
+  
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3"><span style="color: #bd3e0bf8">Supplementary</span></h2>
+          <div class="content has-text-justified">
+  
+            <p>
+              <b><b><span style="color: #bd3e0bf8"> 1. Evaluation on Spirit. </span></b></b><br>
+              The evaluation results of the proposed Chimera method on the Spirit dataset. The recurrence of historical faults in the Spirit system makes them highly predictable. Such a simplistic fault model fails to capture the challenges faced by real-world software systems, thus being unsuitable for comprehensively evaluating the proposed method, even though the proposed method effectively handles Spirit's system faults.
+              <div align="center">
+                <img src= "/static/image/spirit.png" alt="Hierarchical UCB" style="width: 60%;">
+              </div>     
+            </p>
+  
+            <p>
+              <b><b><span style="color: #bd3e0bf8"> 2. Efficiency Evaluation. </span></b></b><br>
+              Among the baseline methods, RobustFlagger achieved the fastest diagnostic speed, attributed to its use of simple semantic clustering for root cause localization, but at the cost of suboptimal diagnostic performance. In contrast, Chimera achieved a suboptimal diagnostic speed, significantly surpassing other baseline methods. Existing methods are either implemented based on complex neural network architectures or predict root cause scores by directly processing log sequences, which increases the overhead of the diagnostic process. In contrast, Chimera utilizes a lightweight structure as its network backbone and employs a multi-instance learning paradigm to predict root cause scores through batch processing of log entries, resulting in faster diagnostic speeds. This evidence demonstrates that, compared to existing methods, Chimera exhibits efficient runtime performance, making it suitable for real industrial fault diagnosis.
+              <div align="center">
+                <img src= "/static/image/efficiency.png" alt="Hierarchical UCB" style="width: 60%;">
+              </div>     
+            </p>
+  
+            <p>
+              <b><b><span style="color: #bd3e0bf8"> 3. Datasets Details. </span></b></b><br>
+              To comprehensively evaluate the effectiveness of the proposed method, we conducted extensive evaluations on two widely adopted public datasets, BGL and Thunderbird, and on System A – a dataset collected from a Kubernetes-based industrial cloud platform of a major cloud service provider.
+              <div align="center">
+                <img src= "/static/image/datainfo.png" alt="Hierarchical UCB" style="width: 60%;">
+              </div>     
+            </p>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+      <!--/ Abstract. -->
+  </section>
+
+
+
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
@@ -76,45 +120,6 @@
 
 
 
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3"><span style="color: #bd3e0bf8">Supplementary</span></h2>
-        <div class="content has-text-justified">
-
-          <p>
-            <b><b><span style="color: #bd3e0bf8"> 1. Evaluation on Spirit. </span></b></b><br>
-            The evaluation results of the proposed Chimera method on the Spirit dataset. The recurrence of historical faults in the Spirit system makes them highly predictable. Such a simplistic fault model fails to capture the challenges faced by real-world software systems, thus being unsuitable for comprehensively evaluating the proposed method, even though the proposed method effectively handles Spirit's system faults.
-            <div align="center">
-              <img src= "/static/image/spirit.png" alt="Hierarchical UCB" style="width: 60%;">
-            </div>     
-          </p>
-
-          <p>
-            <b><b><span style="color: #bd3e0bf8"> 2. Efficiency Evaluation. </span></b></b><br>
-            Among the baseline methods, RobustFlagger achieved the fastest diagnostic speed, attributed to its use of simple semantic clustering for root cause localization, but at the cost of suboptimal diagnostic performance. In contrast, Chimera achieved a suboptimal diagnostic speed, significantly surpassing other baseline methods. Existing methods are either implemented based on complex neural network architectures or predict root cause scores by directly processing log sequences, which increases the overhead of the diagnostic process. In contrast, Chimera utilizes a lightweight structure as its network backbone and employs a multi-instance learning paradigm to predict root cause scores through batch processing of log entries, resulting in faster diagnostic speeds. This evidence demonstrates that, compared to existing methods, Chimera exhibits efficient runtime performance, making it suitable for real industrial fault diagnosis.
-            <div align="center">
-              <img src= "/static/image/efficiency.png" alt="Hierarchical UCB" style="width: 60%;">
-            </div>     
-          </p>
-
-          <p>
-            <b><b><span style="color: #bd3e0bf8"> 3. Datasets Details. </span></b></b><br>
-            To comprehensively evaluate the effectiveness of the proposed method, we conducted extensive evaluations on two widely adopted public datasets, BGL and Thunderbird, and on System A – a dataset collected from a Kubernetes-based industrial cloud platform of a major cloud service provider.
-            <div align="center">
-              <img src= "/static/image/datainfo.png" alt="Hierarchical UCB" style="width: 60%;">
-            </div>     
-          </p>
-
-        </div>
-      </div>
-    </div>
-  </div>
-    <!--/ Abstract. -->
-</section>
 
 
 
