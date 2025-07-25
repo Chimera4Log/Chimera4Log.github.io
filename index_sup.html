@@ -33,249 +33,42 @@
 
   <section class="section">
     <div class="container is-max-desktop">
+      <!-- Abstract. -->
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3"><span style="color: #bd3e0bf8">ASE 2025 Author Response</span></h2>
+          <h2 class="title is-3"><span style="color: #bd3e0bf8">Supplementary</span></h2>
           <div class="content has-text-justified">
-
-
-            <nav style="margin: 2em 0;">
-              <h3 class="title is-4" style="color: #bd3e0bf8;">Index</h3>
-              <ul style="list-style: disc inside;">
-                <li><a href="#reviewA">To Review #383A</a></li>
-                <li><a href="#reviewB">To Review #383B</a></li>
-                <li><a href="#reviewC">To Review #383C</a></li>
-              </ul>
-            </nav>
-
-
-            <h3 class="title is-4" id="reviewA">  <span style="color: #bd3e0bf8">Dear Reviewers</span></h3>
-            <pre style="white-space: pre-wrap; word-break: break-word; width: 100%;"><code>Thank you for your valuable suggestions. We will incorporate your guidance into the revision version. We apologize for any confusion that may have arisen due to our presentation. Here is our clarification. We first address the main questions from each reviewer, then respond to the comments noted in the review.</code></pre>
-
-                    <h3 class="title is-4" id="reviewA">  <span style="color: #bd3e0bf8">To Review #383A</span></h3>
-                    
-
-                    <h3 class="title is-5"> <em>Q1: Dataset Selection</em>   </h3>
-
-                    <p>
-                        <b>1. Representativeness.</b> BGL and Thunderbird are large-scale and widely-used datasets; numerous recent methods <a href="#ref1">[1]</a><a href="#ref1">[2]</a><a href="#ref1">[3]</a> have been evaluated on them, making the evaluation sufficiently representative.
-                    </p>
-
-                    <p>
-                      <b>2. Quality.</b> The historical faults in the Spirit are repetitive and easily predicted, which is not conducive to a comprehensive evaluation of the methods. In our evaluation of Spirit, we found that faults within it are easily predicted and located with an accuracy exceeding 99% <a href="#ref1">[4]</a>, and such simple fault patterns cannot reflect the challenges faced by real-world systems.
-                    </p>
-                    <div style="text-align: center;">
-                      <img src="/static/image/spirit.png" alt="overall" style="width: 70%; height: auto;">
-                      <div style="font-size: 0.75em; color: #666; margin-top: 0.5em;">The evaluation results of the proposed Chimera method on the Spirit dataset. The recurrence of historical faults in the Spirit system makes them highly predictable. Such a simplistic fault model fails to capture the challenges faced by real-world software systems, thus being unsuitable for comprehensively evaluating the proposed method, even though the proposed method effectively handles Spirit's system faults.</div>
-                    </div>
-
-
-
-
-                    <h3 class="title is-5"> <em>Q2: Comparison with Pre-trained Methods</em>   </h3>
-
-                    <h3 class="title is-6"> 1. The advantages of multi-task learning   </h3>
-
-                    <p>
-                      <span style="padding-left:2em;">
-                          <b>1. Fully leveraging the interaction between the two subtasks.</b> The pre-training methods neglect the interaction between the two tasks and cannot bridge the gap between anomaly detection and root cause localization. In this paper, we leverage this interaction through a multi-task learning framework, and evaluations demonstrate that exploiting these interactions indeed achieves effective fault diagnosis.
-                      </span>
-                    </p>
-
-                    <p>
-                      <span style="padding-left:2em;">
-                          <b>2. Deployability.</b> Pre-training-based methods require large-scale pre-training on logs and rely on fine-tuning with training data from downstream tasks. These high training costs and data demands are often prohibitive, limiting their deployability. In contrast, the proposed method can be deployed with lower costs.
-                      </span>
-                    </p>
-
-
-                    <p>
-                      <span style="padding-left:2em;">
-                          <b>3. Efficient diagnosis speed.</b> These pre-training-based methods all use multi-layer Transformers as their architecture—for instance, PreLog's checkpoint exceeds 500MB—which results in slow diagnosis speeds, making them difficult to use in real production environments. Chimera uses a lightweight GRU as its architecture, which achieves nearly the fastest efficiency.
-                      </span>
-                    </p>
-                    <div style="text-align: center;">
-                      <img src="/static/image/efficiency.png" alt="overall" style="width: 70%; height: auto;">
-                      <div style="font-size: 0.75em; color: #666; margin-top: 0.5em;">Chimera utilizes a lightweight structure as its network backbone and employs a multi-instance learning paradigm to predict root cause scores through batch processing of log entries, resulting in faster diagnostic speeds. </div>
-                    </div>
-                      
-                      
-                      
-                    <h3 class="title is-6"> 2. Pre-trained Methods as Baselines   </h3>
-
-                    
-                    <p>
-                      <span style="padding-left:2em;">
-                          <b>1. High deployment costs.</b> Our objective is to develop a fault diagnosis method for real production environments with strict requirements for diagnosis speed. Considering the high deployment costs of pre-training methods, we did not select them as baselines.
-                      </span>
-                    </p>
-
-                    <p>
-                      <span style="padding-left:2em;">
-                          <b>2. Unfair comparison.</b> A significant portion of the performance of pre-training methods stems from large-scale pre-training, which constitutes an unfair comparison for methods trained on a single source.
-                      </span>
-                    </p>
-
-
-                    <p>
-                      <span style="padding-left:2em;">
-                          <b>3. Potential data leakage.</b> We noted that PreLog's pre-training dataset includes our testsets, BGL and Thunderbird, which could lead to potential data leakage and thus result in an unfair comparison.
-                      </span>
-                    </p>
-
-                    <p>
-                      For these reasons, we did not conduct a comparison with pre-training methods.
-                    </p>
-                      
-
-
-
-
-
-
-
-
-
-
-                    <h3 class="title is-4" id="reviewB">  <span style="color: #bd3e0bf8">To Review #383B</span></h3>
-                    
-
-                    <h3 class="title is-5"> <em>Q1: Tools Selection</em>   </h3>
-
-                    <p>
-                        <b>1. Baseline Selection.</b> Our selection criterion is to choose the most state-of-the-art and widely evaluated methods as baselines. The four methods we selected are widely used as baselines for evaluation in recent papers <a href="#ref1">[1]</a><a href="#ref1">[2]</a><a href="#ref1">[3]</a></a><a href="#ref1">[4]</a>, which demonstrates that these methods are leading to some extent, making their selection reasonable.
-                    </p>
-
-                    <p>
-                      <b>2. Parsing Method.</b> We selected Drain as the parsing tool to maintain a consistent setting with the baseline methods, thereby ensuring the fairness of the evaluation.
-                    </p>
-
-
-
-
-
-                    <h3 class="title is-5"> <em>Q2: Research Findings</em>   </h3>
-                    <p>
-                      Beyond evaluating the effectiveness, our study yields the following findings:
-                    </p>
-
-                    <p>
-                      <b>1. The confirmation of two critical problems in fault diagnosis.</b> We confirmed two critical issues in existing fault diagnosis: diagnostic bias and suboptimal diagnosis. These two problems cause existing methods to perform poorly.
-                    </p>
-
-                    <p>
-                      <b>2. The shortcomings of existing methods.</b> We found that existing methods conduct anomaly detection and root cause localization independently, failing to bridge the gap between the two and thus being unable to address these problems.
-                    </p>
-
-
-                    <p>
-                      <b>3. A feasible method for addressing these problems.</b> Our evaluations show that by leveraging the bidirectional interaction between anomaly detection and root cause localization, it is possible to effectively bridge their gap, thereby solving these two problems and improving the performance.
-                    </p>
-
-
-                    <p>
-                      We believe our research offers valuable insights to the community and that our findings are worth sharing.
-                    </p>
-                    
-
-
-                    <h3 class="title is-5"> <em>Comment 1: Datasets Details</em>   </h3>
-                    <p>
-                      To comprehensively evaluate the effectiveness of the proposed method, we conducted extensive evaluations on two widely adopted public datasets, BGL and Thunderbird, and on System A – a dataset collected from a Kubernetes-based industrial cloud platform of a major cloud service provider.
-                    </p>
-                    <div style="text-align: center;">
-                      <img src="/static/image/datainfo.png" alt="overall" style="width: 70%; height: auto;">
-                      <div style="font-size: 0.75em; color: #666; margin-top: 0.5em;">Details of the evaluation datasets.</div>
-                    </div>
-                    
-
-                    <h3 class="title is-5"> <em>Comment 2: Hyper-parameter Lambda Selection</em>   </h3>
-                    <p>
-                      Following the setup of existing work </a><a href="#ref1">[5]</a>, we split the dataset into training, validation, and test sets in a 6:3:1 ratio, and determined the optimal lambda on the validation set.
-                    </p>
-
-
-                    <h3 class="title is-5"> <em>Comment 3: Threats to Validity</em>   </h3>
-                    <p>
-                      We identify two main threats to the validity of our study.
-                    </p>
-                    <p>
-                      <b>1. Dataset Selection.</b> In this work, we primarily use the public benchmarks BGL and Thunderbird for evaluation, as both are large-scale, representative, and widely adopted by previous studies </a><a href="#ref1">[1]</a></a><a href="#ref1">[2]</a></a><a href="#ref1">[3]</a>. Reliance on these specific datasets might introduce potential biases into our findings and experimental results. However, the key insights utilized in our study, such as the interactive relationship between the anomaly detection and root cause localization phases, are generalizable across different systems. Therefore, we believe our proposed method and evaluation results remain valid and robust. In the future, we plan to evaluate Chimera's performance on a broader range of system benchmarks.
-                    </p>
-
-
-                    <p>
-                      <b>2. Implementation.</b> To mitigate threats related to implementation, our evaluations strictly follow the implementations and configurations from the original publications. For baselines lacking an official implementation, we adopted a third-party version </a><a href="#ref1">[6]</a> that is both peer-reviewed and widely accepted. Furthermore, our proposed method and all baseline approaches were subjected to a stringent peer review of their code. To alleviate threats concerning parameter tuning, we partitioned a validation set to configure the relevant hyperparameters, after which the best-performing configuration was chosen for the final evaluation.
-                    </p>
-
-
-
-
-
-                    <h3 class="title is-4" id="reviewC">  <span style="color: #bd3e0bf8">To Review #383C</span></h3>
-                    
-
-                    <h3 class="title is-5"> <em>Q1: Validation Set Usage</em>   </h3>
-
-                    <p>
-                        <b>1. Hyperparameter Selection.</b> Following the setup of existing work </a><a href="#ref1">[5]</a>, we partition the dataset into training, validation, and test sets at a 6:3:1 ratio; the validation set is used to select the optimal hyperparameters, and these settings are subsequently evaluated on the test set.
-                    </p>
-
-                    <p>
-                      <b>2. Checkpoint Selection.</b> The validation set is also used to select the best checkpoint during the training process to prevent overfitting.
-                    </p>
-
-
-                    <h3 class="title is-5"> <em>Q2: Setting of NeuralLog</em>   </h3>
-
-                    <p>
-                      We apologize for the misunderstanding and wish to clarify the experimental setup for NeuralLog. In our evaluation experiments, we followed the original settings of all baseline models to ensure the fairness of the evaluation. For NeuralLog, we did not use Drain for log parsing as we did for the other methods; we sincerely apologize for the misunderstanding caused by this lack of clarity and will provide further clarification in the revised version.
-                    </p>
-
-
-                    <h3 class="title is-5"> <em>Comment: Training Epochs</em>   </h3>
-
-                    <p>
-                      In the provided code, the purpose of setting the maximum epochs to 150 is to ensure sufficient training for the model to converge and achieve optimal performance in a real production environment. However, we have implemented an early stopping strategy that terminates the training once convergence is achieved, so the full 150 epochs are generally not run. In fact, the training typically terminates around 20 epochs. For the evaluation, we follow the settings of prior work </a><a href="#ref1">[5]</a> and set the training to 20 epochs for all methods to ensure a fair comparison.
-                    </p>
-
-
-
-                    <pre style="white-space: pre-wrap; word-break: break-word; width: 100%;"><code>Thank you once again for your valuable feedback. We hope our clarification has addressed your concerns. Please contact us if you have any further questions or concerns.</code></pre>
-
-
-
-
-                    <h3 class="title is-4" id="References">  <span style="color: #bd3e0bf8">References</span></h3>
-                    <ol>
-                      <li id="ref1">Deep Learning or Classical Machine Learning? An Empirical Study on Log-Based Anomaly Detection, ICSE' 24</li>
-                      <li id="ref2">End-to-End AutoML for Unsupervised Log Anomaly Detection, ASE' 24</li>
-                      <li id="ref3">LogFormer: A Pre-train and Tuning Pipeline for Log Anomaly Detection， AAAI' 24</li>
-                      <li id="ref4">PreLog: A Pre-trained Model for Log Analytics, SIGMOD' 24</li>
-                      <li id="ref5">Semi-Supervised Log-Based Anomaly Detection via Probabilistic Label Estimation, ICSE' 21</li>
-                      <li id="ref6">Log-based anomaly detection with deep learning: how far are we?, ICSE' 22</li>
-                    </ol>
-
-            <pre style="white-space: pre-wrap; word-break: break-word; width: 100%;"><code>Thank you for your valuable suggestions. We will incorporate your guidance into the revision version. We apologize for any confusion that may have arisen due to our presentation. Here is our clarification. We first address the main questions from each reviewer, then respond to the comments noted in the review.</code></pre>
-
-                    
+  
+            <p>
+              <b><b><span style="color: #bd3e0bf8"> 1. Evaluation on Spirit. </span></b></b><br>
+              The evaluation results of the proposed Chimera method on the Spirit dataset. The recurrence of historical faults in the Spirit system makes them highly predictable. Such a simplistic fault model fails to capture the challenges faced by real-world software systems, thus being unsuitable for comprehensively evaluating the proposed method, even though the proposed method effectively handles Spirit's system faults.
+              <div align="center">
+                <img src= "/static/image/spirit.png" alt="Hierarchical UCB" style="width: 60%;">
+              </div>     
+            </p>
+  
+            <p>
+              <b><b><span style="color: #bd3e0bf8"> 2. Efficiency Evaluation. </span></b></b><br>
+              Among the baseline methods, RobustFlagger achieved the fastest diagnostic speed, attributed to its use of simple semantic clustering for root cause localization, but at the cost of suboptimal diagnostic performance. In contrast, Chimera achieved a suboptimal diagnostic speed, significantly surpassing other baseline methods. Existing methods are either implemented based on complex neural network architectures or predict root cause scores by directly processing log sequences, which increases the overhead of the diagnostic process. In contrast, Chimera utilizes a lightweight structure as its network backbone and employs a multi-instance learning paradigm to predict root cause scores through batch processing of log entries, resulting in faster diagnostic speeds. This evidence demonstrates that, compared to existing methods, Chimera exhibits efficient runtime performance, making it suitable for real industrial fault diagnosis.
+              <div align="center">
+                <img src= "/static/image/efficiency.png" alt="Hierarchical UCB" style="width: 60%;">
+              </div>     
+            </p>
+  
+            <p>
+              <b><b><span style="color: #bd3e0bf8"> 3. Datasets Details. </span></b></b><br>
+              To comprehensively evaluate the effectiveness of the proposed method, we conducted extensive evaluations on two widely adopted public datasets, BGL and Thunderbird, and on System A – a dataset collected from a Kubernetes-based industrial cloud platform of a major cloud service provider.
+              <div align="center">
+                <img src= "/static/image/datainfo.png" alt="Hierarchical UCB" style="width: 60%;">
+              </div>     
+            </p>
+  
           </div>
         </div>
       </div>
     </div>
+      <!--/ Abstract. -->
   </section>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -588,7 +381,6 @@
     </div>
   </div>
 </footer>
-
 
 </body>
 </html>
